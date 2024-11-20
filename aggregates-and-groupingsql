@@ -1,4 +1,4 @@
-# ------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------------------------------------ #
 # 1. How many suppliers are there? Use a query!
 # 2. What is the sum of all the employee's salaries?
 # 3. What is the price of the cheapest item that Northwind sells?
@@ -12,7 +12,7 @@
 #   You can answer this query by only looking at the Products table.
 # 9. List the product id, product name, and inventory value (calculated by multiplying unit price by the number of units on hand). 
 #   Sort the results in descending order by value. If two or more have the same value, order by product name.
-# ------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------------------------------------ #
 USE northwind;
 
 # --------------------------------------------- #
