@@ -24,9 +24,9 @@ WHERE UnitPrice = (
     FROM Products
     );
 
-# ----------------------------------------------------------------------------------------------------------------------------------------- #
+# --------------------------------------------------------------------------------------------------------- #
 # 2. What is the order id, shipping name and shipping address of all orders shipped via "Federal Shipping"? 
-# ----------------------------------------------------------------------------------------------------------------------------------------- #
+# --------------------------------------------------------------------------------------------------------- #
 SELECT
     OrderID
     , ShipName
@@ -37,4 +37,43 @@ WHERE ShipVia = (
         ShipperID
     FROM Shippers
     WHERE CompanyName = "Federal Shipping"
+);
+
+# --------------------------------------------------------------------- #
+# 3. What are the order ids of the orders that ordered "Sasquatch Ale"? 
+# --------------------------------------------------------------------- #
+SELECT
+    OrderID
+FROM `Order Details`
+WHERE ProductID = (
+    SELECT
+        ProductID
+    FROM Products
+    WHERE ProductName = "Sasquatch Ale"
+);
+
+# ---------------------------------------------------------- #
+# 4. What is the name of the employee that sold order 10266?
+# ---------------------------------------------------------- #
+SELECT
+    CONCAT(FirstName, " ", LastName) AS EmployeeName
+FROM Employees
+WHERE EmployeeID = (
+    SELECT
+        EmployeeID
+    FROM Orders
+    WHERE OrderID = 10266
+);
+
+# ------------------------------------------------------------ #
+# 5. What is the name of the customer that bought order 10266?
+# ------------------------------------------------------------ #
+SELECT
+    CompanyName
+FROM Customers
+WHERE CustomerID = (
+    SELECT
+        CustomerID
+    FROM Orders
+    WHERE OrderID = 10266
 );
