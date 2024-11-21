@@ -43,11 +43,12 @@ SELECT MAX(UnitPrice) AS MostExpensiveItemPrice FROM Products;
 # -------------------------------------------------------------------------------- #
 # 6. What is the supplier ID of each supplier and the number of items they supply? 
 # -------------------------------------------------------------------------------- #
-SELECT
+SELECT 
     SupplierID
-    , COUNT(*) AS NumberOfItemsSupplied
+    , COUNT(SupplierID) as ItemSupplied
 FROM Products
 GROUP BY SupplierID;
+
 
 # ----------------------------------------------------------------------------------------------- #
 # 7. What is the category ID of each category and the average price of each item in the category?
@@ -63,10 +64,10 @@ GROUP BY CategoryID;
 # ------------------------------------------------------------------------------------------------------------------------------------------ #
 SELECT
     SupplierID
-    , COUNT(*) AS NumberOfItemsSupplied
+    , COUNT(SupplierID) as ItemSupplied
 FROM Products
 GROUP BY SupplierID
-HAVING COUNT(*) >= 5;
+HAVING COUNT(SupplierID) >= 5;
 
 # -------------------------------------------------------------------------------------------------------------------------------- #
 # 9. List the product id, product name, and inventory value (calculated by multiplying unit price by the number of units on hand).
