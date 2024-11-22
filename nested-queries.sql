@@ -23,6 +23,12 @@ WHERE UnitPrice = (
         MAX(UnitPrice) 
     FROM Products
     );
+# You can also use this to get the same result:
+SELECT
+    ProductName
+FROM Products
+ORDER BY UnitPrice DESC
+LIMIT 1;
 
 # --------------------------------------------------------------------------------------------------------- #
 # 2. What is the order id, shipping name and shipping address of all orders shipped via "Federal Shipping"? #
